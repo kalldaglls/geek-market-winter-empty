@@ -19,6 +19,7 @@ public interface IFileStoreService {
      */
     String storeFile(byte[] content, String fileName, int subFileType) throws IOException, NoSuchAlgorithmException;
 
+    String deleteFile(byte[] content, String fileName) throws IOException, NoSuchAlgorithmException;
 
     byte[] getFile(UUID md5) throws IOException;
 
