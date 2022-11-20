@@ -34,6 +34,16 @@ public class FilesController {
         return ResponseEntity.ok(fileHash);
     }
 
+    @DeleteMapping("/deletefile")
+    public ResponseEntity<String> deleteFile(@RequestParam("file") MultipartFile file) throws IOException, NoSuchAlgorithmException, InterruptedException {
+//        if (file.isEmpty()) {
+//            return ResponseEntity.badRequest().body("File is empty");
+//        }
+
+        String fileHash = fileStoreService.deleteFile(file.getBytes(), file.getOriginalFilename());
+        return ResponseEntity.ok(fileHash);
+    }
+
     @GetMapping("/getfile")
     public ResponseEntity<Resource> downloadFile(@RequestParam("hash") UUID hash) throws IOException {
         byte[] array = fileStoreService.getFile(hash);

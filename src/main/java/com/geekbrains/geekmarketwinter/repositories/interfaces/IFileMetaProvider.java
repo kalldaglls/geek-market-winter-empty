@@ -15,5 +15,7 @@ public interface IFileMetaProvider {
      */
     void saveFileMeta(UUID Hash, String fileName, int sybType);
 
+    void deleteFileMeta(UUID fileHash, String fileName);
+
     Collection<FileMetaDTO> getMetaFiles(int subtype);
 }
